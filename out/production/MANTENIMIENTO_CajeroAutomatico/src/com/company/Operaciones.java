@@ -9,7 +9,7 @@ public abstract class Operaciones {
     public void operaciones() {
         int bandera = 0;
         int seleccion = 0;
-        //String Nombre = "";
+        String Nombre = "";
         do {
             do {
                 System.out.println(" Buenas tardes esta en un cajero automatico de BBVA");
