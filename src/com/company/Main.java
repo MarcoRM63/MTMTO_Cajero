@@ -15,9 +15,9 @@ public class Main {
         if(Nombre.equals("Catalina") && Num_cuenta.equals("23140972") && Nip==8002) {
         	System.out.println("===============================================");
         	System.out.print(Nombre);
-            Clase_Abstractaa mesajero = new Consulta();
+            Operaciones mesajero = new Consulta();
             mesajero.setSaldo(1700);
-            mesajero.Operaciones();
+            mesajero.operaciones();
         }else {
         	System.out.println("===============================================");
             System.out.println("Alguno de sus datos es erroneo, intente denuevo");

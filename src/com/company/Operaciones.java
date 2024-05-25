@@ -1,12 +1,12 @@
 package com.company;
 import java.util.Scanner;
-public abstract class Clase_Abstractaa {
+public abstract class Operaciones {
 	String numero_cuenta;
     protected int transacciones, retiro, deposito,transferencia;
     private static int saldo;
     Scanner entrada = new Scanner(System.in);
 
-    public void Operaciones() {
+    public void operaciones() {
         int bandera = 0;
         int seleccion = 0;
         String Nombre = "";
@@ -32,16 +32,16 @@ public abstract class Clase_Abstractaa {
             } while (bandera == 0);
             
             if(seleccion == 1){
-            	Clase_Abstractaa mensajero = new Consulta();
+            	Operaciones mensajero = new Consulta();
                 mensajero.Transacciones();
             }else if(seleccion == 2){
-            	Clase_Abstractaa mensajero = new Retiro();
+            	Operaciones mensajero = new Retiro();
                 mensajero.Transacciones();
             } else if(seleccion == 3){
-            	Clase_Abstractaa mensajero = new Deposito();
+            	Operaciones mensajero = new Deposito();
                 mensajero.Transacciones();
             } else if(seleccion == 4){
-            	Clase_Abstractaa mensajero = new Transferencia();
+            	Operaciones mensajero = new Transferencia();
                 mensajero.Transacciones();
             } else if(seleccion == 5){
                 System.out.println("==========================");

@@ -1,6 +1,6 @@
 package com.company;
 
-public class Transferencia extends Clase_Abstractaa {
+public class Transferencia extends Operaciones {
 
     @Override
     public void Transacciones() {

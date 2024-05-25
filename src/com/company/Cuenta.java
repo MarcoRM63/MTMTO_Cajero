@@ -4,6 +4,7 @@ public class Cuenta {
     private Cliente cliente;
     private int numeroCuenta;
     private  int tipo;
+    private int saldo;
     final public static int AHORRO = 1;
     final public static int CHEQUES = 2;
 

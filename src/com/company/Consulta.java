@@ -1,5 +1,5 @@
 package com.company;
-public class Consulta extends Clase_Abstractaa{
+public class Consulta extends Operaciones {
     
     @Override
     public void Transacciones(){

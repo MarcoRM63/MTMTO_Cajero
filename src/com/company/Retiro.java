@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Retiro extends Clase_Abstractaa {
+public class Retiro extends Operaciones {
 
     @Override
     public void Transacciones() {

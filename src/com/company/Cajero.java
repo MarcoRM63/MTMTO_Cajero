@@ -1,7 +1,16 @@
 package com.company;
 
-public class Cajero {
+public class Cajero  implements Movimientos{
     Banco banco;
 
 
+    @Override
+    public void retiro(Cuenta c, int tipo, int monto) {
+
+    }
+
+    @Override
+    public void transferir(Cuenta origen, int tipo, Cuenta destino, int monto) {
+
+    }
 }
