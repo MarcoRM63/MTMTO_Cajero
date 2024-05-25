@@ -4,12 +4,12 @@ public class Cajero  implements Movimientos{
     Banco banco;
 
 
-    @Override
+    //@Override
     public void retiro(Cuenta c, int tipo, int monto) {
 
     }
 
-    @Override
+    //@Override
     public void transferir(Cuenta origen, int tipo, Cuenta destino, int monto) {
 
     }
