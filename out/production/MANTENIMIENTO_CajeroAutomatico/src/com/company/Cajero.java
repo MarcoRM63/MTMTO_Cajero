@@ -73,7 +73,9 @@ public class Cajero implements  Transaccionable{
 
     @Override
     public void retiro(Cuenta c, int tipo, int monto) {
-
+        Operaciones op=new Retiro(c,tipo,monto);
+        String respuesta=op.infoTransaccion();
+        ticketTransaccion(respuesta);
     }
 
     @Override
