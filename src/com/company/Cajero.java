@@ -61,16 +61,20 @@ public class Cajero implements  Transaccionable{
                 } while (bandera != 2);
             }else{
                 System.out.println("NIP incorrecto, terminando transaccion");
+                operaciones(t);
             }
         }else{
             System.out.println("Esta tarjeta no pertenece a este banco, terminando transaccion");
+
         }
 
     }
 
     @Override
     public void retiro(Cuenta c, int tipo, int monto) {
-
+    Operaciones op=new Retiro(c,tipo,monto);
+    String respuesta=op.infoTransaccion();
+    ticketTransaccion(respuesta);
     }
 
     @Override

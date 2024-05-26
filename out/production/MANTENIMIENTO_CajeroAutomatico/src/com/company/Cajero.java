@@ -25,7 +25,6 @@ public class Cajero implements  Transaccionable{
                 int bandera = 0;
                 int seleccion = 0;
                 do {
-
                     do {
                         System.out.println(" Buenas tardes esta en un cajero automatico de " +banco.getNombre());
                         System.out.println(" Porfavor seleccione una opción:");
@@ -53,8 +52,6 @@ public class Cajero implements  Transaccionable{
                         }else{
                             System.out.println("Cuenta no existente");
                         }
-
-
                     } else if (seleccion == 3) {
                         System.out.println("==========================");
                         System.out.println("Gracias, vuelva pronto.");
@@ -64,18 +61,20 @@ public class Cajero implements  Transaccionable{
                 } while (bandera != 2);
             }else{
                 System.out.println("NIP incorrecto, terminando transaccion");
+                operaciones(t);
             }
         }else{
             System.out.println("Esta tarjeta no pertenece a este banco, terminando transaccion");
+
         }
 
     }
 
     @Override
     public void retiro(Cuenta c, int tipo, int monto) {
-        Operaciones op=new Retiro(c,tipo,monto);
-        String respuesta=op.infoTransaccion();
-        ticketTransaccion(respuesta);
+    Operaciones op=new Retiro(c,tipo,monto);
+    String respuesta=op.infoTransaccion();
+    ticketTransaccion(respuesta);
     }
 
     @Override

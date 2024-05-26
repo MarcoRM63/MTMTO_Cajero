@@ -4,17 +4,17 @@ package com.company;
 public class Retiro extends Operaciones {
     private Cuenta cuentaPrincipal;
     private int tipo;
-    private int monto;
+    private  int monto;
 
-    public Retiro(Cuenta cuentaPrincipal,int tipo, int monto){
-        this.cuentaPrincipal=cuentaPrincipal;
-        this.tipo=tipo;
-        this.monto=monto;
+    public Retiro(Cuenta cuentaPrincipal, int tipo, int monto) {
+        this.cuentaPrincipal = cuentaPrincipal;
+        this.tipo = tipo;
+        this.monto = monto;
     }
     //
     public String infoTransaccion() {
     	/*
-    			    System.out.print("Cuanto deseas retirar: ");
+    			 System.out.print("Cuanto deseas retirar: ");
     		        Retiro();
     		        if (retiro <= getSaldo()) {
     		            //transacciones = getSaldo();
@@ -30,29 +30,32 @@ public class Retiro extends Operaciones {
     		            System.out.println("=====================");
     		            System.out.println("Saldo insuficiente.");
     		            System.out.println("=====================");
+
+
     }*/
         String respuesta="";
-        if(cuentaOrigen.getSaldo()< monto){
+        if(cuentaPrincipal.getSaldo()< monto){
             respuesta = "=====================\n" +
                     "Saldo insuficiente \n" +
                     "=====================";
         }else{
-            this.cuentaPrincipal.setSaldo(cuentaPrincipal.getSaldo()-monto);
-            respuesta= "Retiro realizado de "+monto+" de la cuenta: " + cuentaPrincipal.getNumeroCuenta() +"\n" +
-                    " Saldo restante:"+ cuentaOrigen.getSaldo();
+
+            cuentaPrincipal.setSaldo(cuentaPrincipal.getSaldo()-monto);
+            respuesta= "Transferencia realizada de "+monto+" de la cuenta: " + cuentaPrincipal.getNumeroCuenta() +"\n" +
+                    " Saldo restante:"+ cuentaPrincipal.getSaldo();
         }
         return respuesta;
     }
-    public Cuenta getCuentaPrincipal() {    return CuentaPrincipal;    }
 
-    public void setCuentaPrincipal(Cuenta cuentaPrincipal) {     CuentaPrincipal = cuentaPrincipal;  }
+    public Cuenta getCuentaPrincipal() {    return cuentaPrincipal; }
 
-    public int getTipo() {  return Tipo;    }
+    public void setCuentaPrincipal(Cuenta cuentaPrincipal) {    this.cuentaPrincipal = cuentaPrincipal; }
 
-    public void setTipo(int tipo) {     Tipo = tipo;    }
+    public int getTipo() {  return tipo;    }
 
-    public int getMonto() {      return Monto;   }
+    public void setTipo(int tipo) { this.tipo = tipo;   }
 
-    public void setMonto(int monto) {       Monto = monto;      }
+    public int getMonto() { return monto;   }
 
+    public void setMonto(int monto) {   this.monto = monto; }
 }
