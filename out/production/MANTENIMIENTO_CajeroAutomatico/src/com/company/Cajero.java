@@ -13,7 +13,6 @@ public class Cajero  implements Movimientos{
     public void operaciones(TarjetaDebito t) {
         System.out.println("Bienvenido al cajero de " + banco.getNombre() + " :)");
         if (banco.getClientes().contains(t.getCuenta())) {
-
             System.out.println("Introduce el nip de tu tarjeta:");
             final String NIP  = entrada.nextLine();
             if(t.getNip().equals(NIP)) {
@@ -25,14 +24,11 @@ public class Cajero  implements Movimientos{
                         System.out.println(" Buenas tardes esta en un cajero automatico de BBVA");
                         System.out.println(" Hoy es 31/10/2023");
                         System.out.println(" Porfavor seleccione una opción:");
-                        System.out.println("    1. Consulta de saldo.");
-                        System.out.println("    2. Retiro de efectivo.");
-                        System.out.println("    3. Deposito de efectivo.");
-                        System.out.println("    4. Hacer una transferencia");
-                        System.out.println("    5. Salir.");
+                        System.out.println("    1. Retiro de efectivo.");
+                        System.out.println("    2. Hacer una transferencia");
+                        System.out.println("    3. Salir.");
                         seleccion = entrada.nextInt();
-
-                        if (seleccion >= 1 && seleccion <= 5) {
+                        if (seleccion >= 1 && seleccion <= 3) {
                             bandera = 1;
                         } else {
                             System.out.println("=================================================");
@@ -40,20 +36,13 @@ public class Cajero  implements Movimientos{
                             System.out.println("=================================================");
                         }
                     } while (bandera == 0);
-
                     if (seleccion == 1) {
-                        Operaciones mensajero = new Consulta();
-                        mensajero.Transacciones();
-                    } else if (seleccion == 2) {
                         Operaciones mensajero = new Retiro();
                         mensajero.Transacciones();
-                    } else if (seleccion == 3) {
-                        Operaciones mensajero = new Deposito();
-                        mensajero.Transacciones();
-                    } else if (seleccion == 4) {
+                    } else if (seleccion == 2) {
                         Operaciones mensajero = new Transferencia();
                         mensajero.Transacciones();
-                    } else if (seleccion == 5) {
+                    } else if (seleccion == 3) {
                         System.out.println("==========================");
                         System.out.println("Gracias, vuelva pronto.");
                         System.out.println("==========================");

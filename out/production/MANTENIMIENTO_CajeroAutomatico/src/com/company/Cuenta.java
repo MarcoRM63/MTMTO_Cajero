@@ -8,10 +8,11 @@ public class Cuenta {
     final public static int AHORRO = 1;
     final public static int CHEQUES = 2;
 
-    public Cuenta(Cliente cliente, String numeroCuenta, int tipo) {
+    public Cuenta(Cliente cliente, String numeroCuenta, int tipo, double saldo) {
         this.cliente = cliente;
         this.numeroCuenta = numeroCuenta;
         this.tipo = tipo;
+        this.saldo = saldo;
     }
 
     public Cliente getCliente() {

@@ -15,7 +15,9 @@ public class Main {
         cuentasBBVA.add(cJuan);
         cuentasBBVA.add(cPedro);
         TarjetaDebito tarjetaJuan = new TarjetaDebito("1345554",cJuan,"123");
-        Banco bbva  = new Banco("BBVA","Emiliano zapata",cuentasBBVA);
+        Banco bbva  = new Banco("BBVA","Emiliano zapata");
+        bbva.addCuenta(cJuan);
+        bbva.addCuenta(cPedro);
         Cajero caj1 = new Cajero(bbva);
 
 

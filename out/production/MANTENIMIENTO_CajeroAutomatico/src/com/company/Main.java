@@ -8,8 +8,8 @@ public class Main {
 
         Cliente juan = new Cliente(1233,"Juan Perez","Col Centro");
         Cliente pedro = new Cliente(1234,"Pedro","Col NvoCuliacan");
-        Cuenta cJuan = new Cuenta(juan,"12131416",Cuenta.AHORRO);
-        Cuenta cPedro = new Cuenta(juan,"1245455",Cuenta.AHORRO);
+        Cuenta cJuan = new Cuenta(juan,"12131416",Cuenta.AHORRO,1500);
+        Cuenta cPedro = new Cuenta(juan,"1245455",Cuenta.AHORRO,0);
         ArrayList<Cuenta>cuentasBBVA = new ArrayList<>();
         cuentasBBVA.add(cJuan);
         cuentasBBVA.add(cJuan);

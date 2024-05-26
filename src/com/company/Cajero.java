@@ -2,24 +2,22 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Cajero  implements Movimientos{
+public class Cajero implements  Transaccionable{
    private Banco banco;
    Scanner entrada = new Scanner(System.in);
-
+   int numTransaccion = 1;
     public Cajero(Banco banco) {
         this.banco = banco;
     }
 
     public void operaciones(TarjetaDebito t) {
         System.out.println("Bienvenido al cajero de " + banco.getNombre() + " :)");
-        if (banco.getClientes().contains(t.getCuenta())) {
-
+        if (banco.getClientes().containsKey(t.getCuenta())) {
             System.out.println("Introduce el nip de tu tarjeta:");
             final String NIP  = entrada.nextLine();
             if(t.getNip().equals(NIP)) {
                 int bandera = 0;
                 int seleccion = 0;
-                String Nombre = "";
                 do {
                     do {
                         System.out.println(" Buenas tardes esta en un cajero automatico de BBVA");
@@ -29,7 +27,6 @@ public class Cajero  implements Movimientos{
                         System.out.println("    2. Hacer una transferencia");
                         System.out.println("    3. Salir.");
                         seleccion = entrada.nextInt();
-
                         if (seleccion >= 1 && seleccion <= 3) {
                             bandera = 1;
                         } else {
@@ -39,11 +36,18 @@ public class Cajero  implements Movimientos{
                         }
                     } while (bandera == 0);
                     if (seleccion == 1) {
-                        Operaciones mensajero = new Consulta();
-                        mensajero.Transacciones();
+
                     } else if (seleccion == 2) {
-                        Operaciones mensajero = new Retiro();
-                        mensajero.Transacciones();
+                        System.out.println("Introduce el numero de cuenta al que quieres realizar la transaccion:");
+                        String cta = entrada.nextLine();
+                        if(banco.getClientes().containsKey(cta)){
+                            System.out.println("Monto a transferir:");
+                            int monto = entrada.nextInt();
+                            numTransaccion = numTransaccion +1;
+                            transferir(t.getCuenta(),t.getCuenta().getTipo(),banco.getClientes().get(cta),monto);
+                        }
+
+
                     } else if (seleccion == 3) {
                         System.out.println("==========================");
                         System.out.println("Gracias, vuelva pronto.");
@@ -59,6 +63,7 @@ public class Cajero  implements Movimientos{
         }
 
     }
+
     @Override
     public void retiro(Cuenta c, int tipo, int monto) {
 
@@ -66,6 +71,7 @@ public class Cajero  implements Movimientos{
 
     @Override
     public void transferir(Cuenta origen, int tipo, Cuenta destino, int monto) {
-
+        Operaciones op = new Transferencia(origen,tipo,destino,monto);
+        op.Transaccion(Integer.toString(numTransaccion),"11/11/2024");
     }
 }

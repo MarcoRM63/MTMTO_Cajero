@@ -4,11 +4,11 @@ public class Cuenta {
     private Cliente cliente;
     private String numeroCuenta;
     private  int tipo;
-    private double saldo;
+    private int saldo;
     final public static int AHORRO = 1;
     final public static int CHEQUES = 2;
 
-    public Cuenta(Cliente cliente, String numeroCuenta, int tipo, double saldo) {
+    public Cuenta(Cliente cliente, String numeroCuenta, int tipo, int saldo) {
         this.cliente = cliente;
         this.numeroCuenta = numeroCuenta;
         this.tipo = tipo;
@@ -21,6 +21,14 @@ public class Cuenta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
     public String getNumeroCuenta() {

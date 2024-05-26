@@ -1,16 +1,20 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Banco {
     private String nombre;
     private String localizacion;
-    private ArrayList<Cuenta> clientes;
+    private HashMap<String, Cuenta> clientes;
 
-    public Banco(String nombre, String localizacion, ArrayList<Cuenta> clientes) {
+    public Banco(String nombre, String localizacion) {
         this.nombre = nombre;
         this.localizacion = localizacion;
-        this.clientes = clientes;
+    }
+
+    public HashMap<String, Cuenta> getClientes() {
+        return clientes;
     }
 
     public String getNombre() {
@@ -29,11 +33,7 @@ public class Banco {
         this.localizacion = localizacion;
     }
 
-    public ArrayList<Cuenta> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(ArrayList<Cuenta> clientes) {
-        this.clientes = clientes;
+    public void addCuenta(Cuenta c){
+        clientes.put(c.getNumeroCuenta(),c);
     }
 }
