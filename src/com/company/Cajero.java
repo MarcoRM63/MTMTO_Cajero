@@ -25,7 +25,6 @@ public class Cajero implements  Transaccionable{
                 int bandera = 0;
                 int seleccion = 0;
                 do {
-
                     do {
                         System.out.println(" Buenas tardes esta en un cajero automatico de " +banco.getNombre());
                         System.out.println(" Porfavor seleccione una opción:");
@@ -53,8 +52,6 @@ public class Cajero implements  Transaccionable{
                         }else{
                             System.out.println("Cuenta no existente");
                         }
-
-
                     } else if (seleccion == 3) {
                         System.out.println("==========================");
                         System.out.println("Gracias, vuelva pronto.");
