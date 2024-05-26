@@ -1,24 +1,25 @@
 package com.company;
 
 public class TarjetaDebito {
-    private  int numero_Tarjeta;
-    private Cliente cliente;
+    private  String numero_Tarjeta;
     private Cuenta cuenta;
+    final private  String nip;
+    public TarjetaDebito(String numero_Tarjeta, Cuenta cuenta,String nip) {
+        this.numero_Tarjeta = numero_Tarjeta;
+        this.cuenta = cuenta;
+        this.nip = nip;
+    }
 
-    public int getNumero_Tarjeta() {
+    public String getNip() {
+        return nip;
+    }
+
+    public String getNumero_Tarjeta() {
         return numero_Tarjeta;
     }
 
-    public void setNumero_Tarjeta(int numero_Tarjeta) {
+    public void setNumero_Tarjeta(String numero_Tarjeta) {
         this.numero_Tarjeta = numero_Tarjeta;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     public Cuenta getCuenta() {

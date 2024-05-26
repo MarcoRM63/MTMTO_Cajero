@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Banco {
     private String nombre;
     private String localizacion;
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Cuenta> clientes;
 
-    public Banco(String nombre, String localizacion, ArrayList<Cliente> clientes) {
+    public Banco(String nombre, String localizacion, ArrayList<Cuenta> clientes) {
         this.nombre = nombre;
         this.localizacion = localizacion;
         this.clientes = clientes;
@@ -29,11 +29,11 @@ public class Banco {
         this.localizacion = localizacion;
     }
 
-    public ArrayList<Cliente> getClientes() {
+    public ArrayList<Cuenta> getClientes() {
         return clientes;
     }
 
-    public void setClientes(ArrayList<Cliente> clientes) {
+    public void setClientes(ArrayList<Cuenta> clientes) {
         this.clientes = clientes;
     }
 }

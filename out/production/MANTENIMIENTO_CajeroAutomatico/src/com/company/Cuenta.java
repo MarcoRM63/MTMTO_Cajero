@@ -2,13 +2,13 @@ package com.company;
 
 public class Cuenta {
     private Cliente cliente;
-    private int numeroCuenta;
+    private String numeroCuenta;
     private  int tipo;
     private double saldo;
     final public static int AHORRO = 1;
     final public static int CHEQUES = 2;
 
-    public Cuenta(Cliente cliente, int numeroCuenta, int tipo) {
+    public Cuenta(Cliente cliente, String numeroCuenta, int tipo) {
         this.cliente = cliente;
         this.numeroCuenta = numeroCuenta;
         this.tipo = tipo;
@@ -22,11 +22,11 @@ public class Cuenta {
         this.cliente = cliente;
     }
 
-    public int getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
-    public void setNumeroCuenta(int numeroCuenta) {
+    public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
 

@@ -11,8 +11,8 @@ public class Transferencia extends Operaciones implements Movimientos{
         Scanner entrada=new Scanner(System.in);
         tipo=destino.getTipo();
         System.out.println("Dame el numero de cuenta a la que vas a transferir");
-        int CuentaDestino=entrada.nextInt();
-        destino.setNumeroCuenta(CuentaDestino);
+        String cuentaDestino=entrada.nextLine();
+        destino.setNumeroCuenta(cuentaDestino);
         System.out.print("Cuanto quieres Transferir: ");
         Transferencia();
         System.out.println("Los datos de la transferencia: Cuenta destino "+destino.getNumeroCuenta()+" tipo de cuenta: "+tipo+", de la " +
