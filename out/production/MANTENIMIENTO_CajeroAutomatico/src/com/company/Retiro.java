@@ -2,13 +2,13 @@ package com.company;
 
 
 public class Retiro extends Operaciones {
-    @Override
-    public void Transacciones() {
-    	
+
+    public String infoTransaccion() {
+    	/*
     			 System.out.print("Cuanto deseas retirar: ");
     		        Retiro();
     		        if (retiro <= getSaldo()) {
-    		            transacciones = getSaldo();
+    		            //transacciones = getSaldo();
     		            setSaldo(transacciones - retiro);
     		            System.out.println("====================================");
     		            System.out.println("=================BBVA===============");
@@ -22,7 +22,8 @@ public class Retiro extends Operaciones {
     		            System.out.println("Saldo insuficiente.");
     		            System.out.println("=====================");
     
-       
-    }
+
+    }*/
+        return "";
 }
 }

@@ -3,7 +3,7 @@ package com.company;
 
 public class Retiro extends Operaciones {
 
-    public void Transaccion(String id, String fecha) {
+    public String infoTransaccion() {
     	/*
     			 System.out.print("Cuanto deseas retirar: ");
     		        Retiro();
@@ -24,5 +24,6 @@ public class Retiro extends Operaciones {
     
 
     }*/
+        return "";
 }
 }

@@ -10,16 +10,21 @@ public class Transferencia extends Operaciones {
         this.monto = monto;
     }
 
-    public void Transaccion(String id, String fecha) {
+    public String infoTransaccion() {
+        String respuesta="";
         if(cuentaOrigen.getSaldo()< monto){
-            System.out.println("=====================");
-            System.out.println("Saldo insuficiente.");
-            System.out.println("=====================");
+            respuesta = "=====================\n" +
+                        "Saldo insuficiente \n" +
+                        "=====================";
         }else{
-            System.out.println("Transferencia realizada de "  + " de la cuenta: " + cuentaOrigen.getNumeroCuenta() +
-                    " a la cuenta: " + cuentaDestino.getNumeroCuenta());
-        }
 
+            cuentaOrigen.setSaldo(cuentaOrigen.getSaldo()-monto);
+            cuentaDestino.setSaldo(cuentaDestino.getSaldo()+monto);
+            respuesta= "Transferencia realizada de "+monto+" de la cuenta: " + cuentaOrigen.getNumeroCuenta() +
+                    " a la cuenta: " + cuentaDestino.getNumeroCuenta() +"\n" +
+                    " Saldo restante:"+ cuentaOrigen.getSaldo();
+        }
+        return respuesta;
     }
 
     // Getters y Setters

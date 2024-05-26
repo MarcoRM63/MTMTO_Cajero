@@ -1,27 +1,33 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Cajero implements  Transaccionable{
    private Banco banco;
    Scanner entrada = new Scanner(System.in);
-   int numTransaccion = 1;
+   int numTransaccion = 0;
+   int tipo;
     public Cajero(Banco banco) {
         this.banco = banco;
     }
 
     public void operaciones(TarjetaDebito t) {
-        System.out.println("Bienvenido al cajero de " + banco.getNombre() + " :)");
-        if (banco.getClientes().containsKey(t.getCuenta())) {
+        if (banco.getClientes().containsKey(t.getCuenta().getNumeroCuenta())) {
             System.out.println("Introduce el nip de tu tarjeta:");
             final String NIP  = entrada.nextLine();
             if(t.getNip().equals(NIP)) {
+                do{
+                    System.out.println("Tipo de cuenta (1.-Ahorro) o (2.-Cheque )");
+                    tipo = entrada.nextInt();
+                }while (tipo>2);
                 int bandera = 0;
                 int seleccion = 0;
                 do {
+
                     do {
-                        System.out.println(" Buenas tardes esta en un cajero automatico de BBVA");
-                        System.out.println(" Hoy es 31/10/2023");
+                        System.out.println(" Buenas tardes esta en un cajero automatico de " +banco.getNombre());
                         System.out.println(" Porfavor seleccione una opción:");
                         System.out.println("    1. Retiro de efectivo.");
                         System.out.println("    2. Hacer una transferencia");
@@ -39,12 +45,13 @@ public class Cajero implements  Transaccionable{
 
                     } else if (seleccion == 2) {
                         System.out.println("Introduce el numero de cuenta al que quieres realizar la transaccion:");
-                        String cta = entrada.nextLine();
+                        String cta = Keyboard.readString();
                         if(banco.getClientes().containsKey(cta)){
                             System.out.println("Monto a transferir:");
                             int monto = entrada.nextInt();
-                            numTransaccion = numTransaccion +1;
                             transferir(t.getCuenta(),t.getCuenta().getTipo(),banco.getClientes().get(cta),monto);
+                        }else{
+                            System.out.println("Cuenta no existente");
                         }
 
 
@@ -72,6 +79,21 @@ public class Cajero implements  Transaccionable{
     @Override
     public void transferir(Cuenta origen, int tipo, Cuenta destino, int monto) {
         Operaciones op = new Transferencia(origen,tipo,destino,monto);
-        op.Transaccion(Integer.toString(numTransaccion),"11/11/2024");
+        String respuesta = op.infoTransaccion();
+        ticketTransaccion(respuesta);
+    }
+    public void ticketTransaccion(String infoTransaccion){
+        Date myDate = new Date();
+
+//Aquí obtienes el formato que deseas
+
+        System.out.println("====================================");
+        System.out.println("================="+banco.getNombre()+"===============");
+        System.out.println("=================       Debito  =================");
+        System.out.println("Fecha: "+new SimpleDateFormat("dd-MM-yyyy").format(myDate));
+        System.out.println();
+        System.out.println(infoTransaccion);
+        System.out.println("----------------------------------------------------");
+        System.out.println();
     }
 }

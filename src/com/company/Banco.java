@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Banco {
     private String nombre;
     private String localizacion;
-    private HashMap<String, Cuenta> clientes;
+    private HashMap<String, Cuenta> clientes = new HashMap<>();
 
     public Banco(String nombre, String localizacion) {
         this.nombre = nombre;
