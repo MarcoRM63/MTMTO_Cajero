@@ -41,7 +41,7 @@ public class Retiro extends Operaciones {
         }else{
 
             cuentaPrincipal.setSaldo(cuentaPrincipal.getSaldo()-monto);
-            respuesta= "Transferencia realizada de "+monto+" de la cuenta: " + cuentaPrincipal.getNumeroCuenta() +"\n" +
+            respuesta= "Retiro realizado de "+monto+" de la cuenta: " + cuentaPrincipal.getNumeroCuenta() +"\n" +
                     " Saldo restante:"+ cuentaPrincipal.getSaldo();
         }
         return respuesta;

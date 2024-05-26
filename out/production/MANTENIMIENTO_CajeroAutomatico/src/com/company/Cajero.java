@@ -15,11 +15,11 @@ public class Cajero implements  Transaccionable{
 
     public void operaciones(TarjetaDebito t) {
         if (banco.getClientes().containsKey(t.getCuenta().getNumeroCuenta())) {
-            System.out.println("Introduce el nip de tu tarjeta:");
+            System.out.print("Introduce el nip de tu tarjeta:");
             final String NIP  = entrada.nextLine();
             if(t.getNip().equals(NIP)) {
                 do{
-                    System.out.println("Tipo de cuenta (1.-Ahorro) o (2.-Cheque )");
+                    System.out.print("Tipo de cuenta (1.-Ahorro) o (2.-Cheque ): ");
                     tipo = entrada.nextInt();
                 }while (tipo>2);
                 int bandera = 0;
@@ -41,12 +41,14 @@ public class Cajero implements  Transaccionable{
                         }
                     } while (bandera == 0);
                     if (seleccion == 1) {
-
+                        System.out.print("Monto a retirar:");
+                        int monto=Keyboard.readInt();
+                        retiro(t.getCuenta(),t.getCuenta().getTipo(),monto);
                     } else if (seleccion == 2) {
-                        System.out.println("Introduce el numero de cuenta al que quieres realizar la transaccion:");
+                        System.out.print("Introduce el numero de cuenta al que quieres realizar la transaccion:");
                         String cta = Keyboard.readString();
                         if(banco.getClientes().containsKey(cta)){
-                            System.out.println("Monto a transferir:");
+                            System.out.print("Monto a transferir:");
                             int monto = entrada.nextInt();
                             transferir(t.getCuenta(),t.getCuenta().getTipo(),banco.getClientes().get(cta),monto);
                         }else{
@@ -61,11 +63,9 @@ public class Cajero implements  Transaccionable{
                 } while (bandera != 2);
             }else{
                 System.out.println("NIP incorrecto, terminando transaccion");
-                operaciones(t);
             }
         }else{
             System.out.println("Esta tarjeta no pertenece a este banco, terminando transaccion");
-
         }
 
     }
