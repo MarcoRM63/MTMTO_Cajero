@@ -16,7 +16,7 @@ public class Cajero implements  Transaccionable{
     public void operaciones(TarjetaDebito t) {
         if (banco.getClientes().containsKey(t.getCuenta().getNumeroCuenta())) {
             System.out.print("Introduce el nip de tu tarjeta:");
-            final String NIP  = entrada.nextLine();
+            final String NIP  = Keyboard.readString();
             if(t.getNip().equals(NIP)) {
                 do{
                     System.out.print("Tipo de cuenta (1.-Ahorro) o (2.-Cheque ): ");
@@ -74,14 +74,26 @@ public class Cajero implements  Transaccionable{
     public void retiro(Cuenta c, int tipo, int monto) {
     Operaciones op=new Retiro(c,tipo,monto);
     String respuesta=op.infoTransaccion();
-    ticketTransaccion(respuesta);
+        if(!respuesta.contains("insuficiente")){
+            numTransaccion++;
+            ticketTransaccion(respuesta);
+        }else{
+            System.out.println(respuesta);
+            System.out.println("Operación cancelada y no registrada");
+        }
     }
 
     @Override
     public void transferir(Cuenta origen, int tipo, Cuenta destino, int monto) {
         Operaciones op = new Transferencia(origen,tipo,destino,monto);
         String respuesta = op.infoTransaccion();
-        ticketTransaccion(respuesta);
+        if(!respuesta.contains("insuficiente")){
+            numTransaccion++;
+            ticketTransaccion(respuesta);
+        }else{
+            System.out.println(respuesta);
+            System.out.println("Operación cancelada y no registrada");
+        }
     }
     public void ticketTransaccion(String infoTransaccion){
         Date myDate = new Date();
@@ -89,9 +101,10 @@ public class Cajero implements  Transaccionable{
 //Aquí obtienes el formato que deseas
 
         System.out.println("====================================");
-        System.out.println("================="+banco.getNombre()+"===============");
-        System.out.println("=================       Debito  =================");
+        System.out.println("==============="+banco.getNombre()+"===============");
+        System.out.println("===============Debito===============");
         System.out.println("Fecha: "+new SimpleDateFormat("dd-MM-yyyy").format(myDate));
+        System.out.println("ID de transaccion:"+numTransaccion);
         System.out.println();
         System.out.println(infoTransaccion);
         System.out.println("----------------------------------------------------");
